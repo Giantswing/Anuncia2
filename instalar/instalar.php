@@ -33,8 +33,8 @@ if(isset($_POST['instala'])){
 					
 			$sql[]="CREATE TABLE IF NOT EXISTS anuncios(
 					id INT(10) PRIMARY KEY AUTO_INCREMENT,
-					fecha DATE NOT NULL,
-					fecha_validez DATE,
+					fecha DATETIME NOT NULL,
+					fecha_validez DATETIME,
 					mensaje VARCHAR(2048),
 					usuario VARCHAR(40) NOT NULL, 
 					FOREIGN KEY(usuario) REFERENCES USUARIOS(login)
@@ -81,7 +81,7 @@ if(isset($_POST['admin'])){
 </head>
 <body>
 	<div id = "banner">
-		<h1 id = "bannerText"><a href="../index.php">ANUNCIA2 AW</a></h1>
+		<h1 id = "bannerText"><a href="../index.php">Anuncia2</a></h1>
 	</div>
 		
 	

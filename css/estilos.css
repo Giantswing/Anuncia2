@@ -23,7 +23,13 @@ input {
 		height : 12vh;
 		width : 100%;
 		position : relative;
+		border-radius : 20px;
 
+}
+
+@font-face {
+    font-family: 'Banner';
+    src: url('../fonts/GaeilgeKids.otf') format('truetype');
 }
 
 #bannerText {
@@ -31,16 +37,19 @@ input {
 	text-align : center;
 	margin : auto;
 	top : 50%;
-	left : 28%;
+	left : 22%;
 	width : 40vw;
 	transform : translateY(-50%);
-	text-shadow : 5px 5px 5px rgba(0,0,0,0.15);
+	
+	text-shadow: 2px 0 10px #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+	
+	font-size : 3vw;
 }
-
 
 #bannerText a {
 	text-decoration : none;
-	color : black;	
+	color : white;	
+	font-family: 'Banner';
 }
 
 
@@ -55,7 +64,9 @@ input {
 
 .main {
 		background-color : #e6f2ff;
-		margin : 2%;
+		margin : 1%;
+		margin-left : 10%;
+		margin-right : 10%;
 		padding : 2%;
 		border-radius : 10px;
 }
@@ -68,22 +79,16 @@ input {
 	width : 25vw;
 	right : 20px;
 	transform : translateY(-50%);
-	
 	font-style : italic;
 	font-size : 15px;
-	
 }
 
-/*
-#adminButton {
-	position : absolute;
-	margin : auto;
-	top : 50%;
-	width : 20vw;
-	left : 20px;
-	transform : translateY(-50%);
+#inicioText a {
+	font-weight : bold;
+	text-decoration : none;
+	color : #19cf86;	
 }
-*/
+
 #botonesBarra {
 	position : absolute;
 	margin : auto;
@@ -104,7 +109,8 @@ input {
 }
 
 .content {
-	margin : 30px;
+	margin : 10px;
+	margin-bottom : 0px;
 }
 
 #formulario {
@@ -128,7 +134,7 @@ input {
 #userTable {
 		margin-left: auto;
 		margin-right: auto;
-		width : 80vw;
+		width : 100%;
 		border : 1px;
 		border-style : solid;
 		border-radius : 5px;
@@ -160,7 +166,7 @@ input {
 
 
 #menuMensaje {
-	padding : 10px;
+	padding : 20px;
 	top : 20%;
 	left : 8%;
 	width : 80vw;
@@ -180,6 +186,10 @@ input {
 		width : 100%;
 		height : 100%;
 		font-size : 18px;
+		background-color : white;
+		border-radius : 15px;
+		font-family: 'Open Sans', sans-serif;
+		border-style : none;
 }
 
 #enviarMensajeBtn {
@@ -199,11 +209,38 @@ input {
 		right : 0%;
 }
 
+.interactiveButton:hover{
+		transform : scale(1.5);
+		transition : 0.1s;
+}
+
+.interactiveButton {
+	transform : scale(1);
+	transition : 0.1s;
+}
+
+
+.msjHolder{
+  border-collapse:separate; 
+  border-spacing: 0 1em;
+  width: 100%;	
+  
+}
 .mensaje {
 	background-color : white;
 	padding : 20px;
-	width : 80vw;
+	width : 100%;
 	border-radius : 10px;
+	margin : 50px;
+	position : relative;
+	box-shadow : 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.borrarMsgBtn {
+	position : absolute;
+	top : 25%;
+	right : 1%;
+	z-index : 15;
 }
 
 

@@ -19,9 +19,9 @@ else {
 
 if(isset($_SESSION['rol'])){
 	if($_SESSION['rol'] == "admin")
-		$adminButton = "<td><a href='../admin/admin.php'><img src='../img/adminIcon.png'></a></td>";
+		$adminButton = "<td><a href='./admin/admin.php'><img class = 'interactiveButton' src='../img/adminIcon.png'></a></td>";
 	if($_SESSION['rol'] == "registrado" || $_SESSION['rol'] == "admin")
-		$newMsgButton = "<td><a href='../index.php?newmsg'><img src='../img/newMessageIcon.png'></a></td>";
+		$newMsgButton = "<td><a href='./index.php?newmsg'><img class = 'interactiveButton' src='../img/newMessageIcon.png'></a></td>";
 }
 
 
@@ -62,7 +62,7 @@ if(isset($_POST['inicio'])){ //si se ha pulsado el botón en el formulario
 <body>
 <div class = "main"> 
 			<div id = "banner">
-					<h1 id = "bannerText"><a href="../index.php">ANUNCIA2 AW</a></h1>
+					<h1 id = "bannerText"><a href="../index.php">Anuncia2</a></h1>
 					<?php if(isset($mensajeBanner)) echo $mensajeBanner; ?>
 					<table>
 						<tr id = "botonesBarra">
