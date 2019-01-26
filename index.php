@@ -88,22 +88,31 @@ if(isset($_SESSION['rol'])){
 				$horasPasadasSelect = mysqli_query($linkDB, $horasPasadasMsj) or die();
 				$horasPasadas = mysqli_fetch_row($horasPasadasSelect) or die();
 				
-				/*
-				$minutosPasadosMsj = "SELECT TIMESTAMPDIFF(MINUTE '$fila[fecha]', NOW());";
+				//$minutosPasadosMsj = "MOD(SELECT TIMESTAMPDIFF(MINUTE, '$fila[fecha]', NOW()), 60);";
+				$minutosPasadosMsj = "SELECT MOD(TIMESTAMPDIFF(MINUTE, '$fila[fecha]', NOW()), 60);";
 				$minutosPasadosSelect = mysqli_query($linkDB, $minutosPasadosMsj) or die();
 				$minutosPasados = mysqli_fetch_row($minutosPasadosSelect) or die();
-				*/
+				
+				$tiempoMensaje = "hace $horasPasadas[0] hora/s y $minutosPasados[0] minuto/s";
+				if($horasPasadas[0] == 0 && $minutosPasados[0] == 0){
+						$tiempoMensaje = "ahora mismo";
+				}
+				else if($horasPasadas[0] == 0 && $minutosPasados[0] != 0){
+						$tiempoMensaje = "hace $minutosPasados[0] minuto/s";
+				}
+				
+				
 				//echo "<script>alert('$horasPasadas[0]');</script>";
 				
 				if(isset($_SESSION['rol'])){
 					if($_SESSION['rol'] == 'admin')
-						echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha])</i>:</div><a class = 'borrarMsgBtn' href = './index.php?borrarMsg=$fila[id]'>
+						echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><a class = 'borrarMsgBtn' href = './index.php?borrarMsg=$fila[id]'>
 						<img class = 'interactiveButton' src = './img/deleteIcon.png'></a><br>$fila[mensaje]</td></tr>";
 					else
-						echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha])</i>:</div><br>$fila[mensaje]</td></tr>";
+						echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><br>$fila[mensaje]</td></tr>";
 				}
 				else
-					echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), Hace $horasPasadas[0] hora/s</i>:</div><br>$fila[mensaje]</td></tr>";
+					echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><br>$fila[mensaje]</td></tr>";
 				
 			}
 			
