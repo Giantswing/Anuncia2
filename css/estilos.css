@@ -1,0 +1,214 @@
+input {
+		display: block;
+		background-color : #b3d6ff;
+		border-style : none;
+		border-radius : 5px;
+		padding : 5px;
+}
+
+body {
+		background-color: #66ccff;
+		margin : 2%;
+		font-family: 'Open Sans', sans-serif;
+}
+
+input {
+		margin : 0.25%;
+}
+
+#banner {
+		background-color : white;
+		border-width : 5px;
+		box-shadow : 0px 0px 5px rgba(0,0,0,0.5);
+		height : 12vh;
+		width : 100%;
+		position : relative;
+
+}
+
+#bannerText {
+	position : absolute;
+	text-align : center;
+	margin : auto;
+	top : 50%;
+	left : 28%;
+	width : 40vw;
+	transform : translateY(-50%);
+	text-shadow : 5px 5px 5px rgba(0,0,0,0.15);
+}
+
+
+#bannerText a {
+	text-decoration : none;
+	color : black;	
+}
+
+
+.titulo {
+		text-align : center;
+		text-shadow : 5px 5px 5px rgba(0,0,0,0.1);
+		z-index : 100;
+		width : 40%;
+		margin-right : auto;
+		margin-left: auto;
+}
+
+.main {
+		background-color : #e6f2ff;
+		margin : 2%;
+		padding : 2%;
+		border-radius : 10px;
+}
+
+#inicioText {
+	position : absolute;
+	text-align : right;
+	margin : auto;
+	top : 50%;
+	width : 25vw;
+	right : 20px;
+	transform : translateY(-50%);
+	
+	font-style : italic;
+	font-size : 15px;
+	
+}
+
+/*
+#adminButton {
+	position : absolute;
+	margin : auto;
+	top : 50%;
+	width : 20vw;
+	left : 20px;
+	transform : translateY(-50%);
+}
+*/
+#botonesBarra {
+	position : absolute;
+	margin : auto;
+	top : 50%;
+	width : 20vw;
+	left : 20px;
+	transform : translateY(-50%);
+}
+
+
+.formularioBack {
+    background-color : white;
+    border-radius : 15px;
+    margin-left: auto;
+    margin-right: auto;
+	width : 30vw;
+	padding : 1vw;
+}
+
+.content {
+	margin : 30px;
+}
+
+#formulario {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30vw;
+	text-align : center;
+	content-align : center;
+}
+
+#errormsj {
+		color : red;
+		text-align : center;
+}
+
+#confirmacionmsj {
+		color : green;
+		text-align : center;
+}
+
+#userTable {
+		margin-left: auto;
+		margin-right: auto;
+		width : 80vw;
+		border : 1px;
+		border-style : solid;
+		border-radius : 5px;
+		padding : 5px;
+}
+
+#userTable tr:nth-child(even) {
+	background: #e6f2ff;
+}
+#userTable tr:nth-child(odd) {
+	background: #b3d6ff;
+}
+#botonesBarra td {
+	width: 50px;
+}
+
+
+#mensajeBack a {
+	background-color : rgba(0,0,0,0.3);
+	position : fixed ;
+	magin : 0;
+	padding : 0;
+	top : 0;
+	left : 0;
+	width : 100vw;
+	height : 100vh;
+	z-index : 10;
+}
+
+
+#menuMensaje {
+	padding : 10px;
+	top : 20%;
+	left : 8%;
+	width : 80vw;
+	height : 30vh;
+	margin-left : auto;
+	margin-right : auto;
+	background-color : white;
+	border-radius : 10px;
+	box-shadow : 0px 0px 15px rgba(0,0,0,0.8);
+	position : fixed;
+	transition : 1s;
+	z-index : 15;
+}
+
+
+#menuMensaje textarea {
+		width : 100%;
+		height : 100%;
+		font-size : 18px;
+}
+
+#enviarMensajeBtn {
+		
+		height : 8vh;
+		width : 200px;
+		font-size : 17px;
+		box-shadow : 0px 0px 8px rgba(0,0,0,0.2);
+}
+
+#cancelarBtn {
+		position : absolute;
+		
+		border-radius : 80px;
+		margin : auto;
+		top : 0%;
+		right : 0%;
+}
+
+.mensaje {
+	background-color : white;
+	padding : 20px;
+	width : 80vw;
+	border-radius : 10px;
+}
+
+
+input {
+	    margin-left: auto;
+		margin-right: auto;
+		width : 50%;
+}
