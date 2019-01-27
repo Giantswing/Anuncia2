@@ -30,8 +30,7 @@ if(isset($_POST['publicar'])){
 
 if(isset($_GET['borrarMsg'])){
 	if(isset($_SESSION['rol'])){
-			if($_SESSION['rol'] == 'admin'){
-				
+			if($_SESSION['rol'] == 'admin' || ($_SESSION['rol'] == 'registrado' && $_GET['autor']==$_SESSION['login'])){
 				$idMsg = $_GET['borrarMsg'];
 				$linkDB = mysqli_connect($host, $userDB, $passwordDB, $db, $port);
 				$mensajeServidor = "DELETE FROM anuncios WHERE id=$idMsg;";
@@ -48,8 +47,10 @@ if(isset($_GET['borrarMsg'])){
 if(isset($_SESSION['rol'])){
 	if($_SESSION['rol'] == "admin")
 		$adminButton = "<td><a href='./admin/admin.php'><img class = 'interactiveButton' src='./img/adminIcon.png'></a></td>";
-	if($_SESSION['rol'] == "registrado" || $_SESSION['rol'] == "admin")
+	if($_SESSION['rol'] == "registrado" || $_SESSION['rol'] == "admin"){
 		$newMsgButton = "<td><a href='./index.php?newmsg'><img class = 'interactiveButton' src='./img/newMessageIcon.png'></a></td>";
+		$editProfileButton = "<td><a href='./registrado/editarperfil.php?perfil=$_SESSION[login]'><img class = 'interactiveButton' src='./img/editIcon.png'></a></td>";
+	}
 }	
 ?>
 
@@ -60,11 +61,12 @@ if(isset($_SESSION['rol'])){
 	<body>
 		<div class = "main">
 			<div id = "banner">
-					<h1 id = "bannerText"><a href="./index.php">Anuncia2</a></h1>
+					<h1 id = "bannerText"><a href="./index.php">Anuncia34</a></h1>
 					<?php if(isset($mensajeBanner)) echo $mensajeBanner; ?>
 					<table>
 						<tr id = "botonesBarra">
 						<?php if(isset($adminButton)) echo $adminButton; ?>
+						<?php if(isset($editProfileButton)) echo $editProfileButton; ?>
 						<?php if(isset($newMsgButton)) echo $newMsgButton; ?>
 						</tr>
 					</table>
@@ -105,11 +107,18 @@ if(isset($_SESSION['rol'])){
 				//echo "<script>alert('$horasPasadas[0]');</script>";
 				
 				if(isset($_SESSION['rol'])){
-					if($_SESSION['rol'] == 'admin')
-						echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><a class = 'borrarMsgBtn' href = './index.php?borrarMsg=$fila[id]'>
-						<img class = 'interactiveButton' src = './img/deleteIcon.png'></a><br>$fila[mensaje]</td></tr>";
-					else
-						echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><br>$fila[mensaje]</td></tr>";
+					if($_SESSION['rol'] == 'admin'){
+						echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><a class = 'borrarMsgBtn' 
+						href = './index.php?borrarMsg=$fila[id]&autor=$fila[usuario]'><img class = 'interactiveButton' src = './img/deleteIcon.png'></a><br>$fila[mensaje]</td></tr>";
+					}
+					else{
+						if($fila['usuario'] == $_SESSION['login']){
+							echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><a class = 'borrarMsgBtn' 
+							href = './index.php?borrarMsg=$fila[id]&autor=$fila[usuario]'><img class = 'interactiveButton' src = './img/deleteIcon.png'></a><br>$fila[mensaje]</td></tr>";
+						}
+						else
+							echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><br>$fila[mensaje]</td></tr>";
+					}
 				}
 				else
 					echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><br>$fila[mensaje]</td></tr>";

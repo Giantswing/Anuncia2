@@ -19,9 +19,11 @@ else {
 
 if(isset($_SESSION['rol'])){
 	if($_SESSION['rol'] == "admin")
-		$adminButton = "<td><a href='./admin/admin.php'><img class = 'interactiveButton' src='../img/adminIcon.png'></a></td>";
-	if($_SESSION['rol'] == "registrado" || $_SESSION['rol'] == "admin")
-		$newMsgButton = "<td><a href='./index.php?newmsg'><img class = 'interactiveButton' src='../img/newMessageIcon.png'></a></td>";
+		$adminButton = "<td><a href='../admin/admin.php'><img class = 'interactiveButton' src='../img/adminIcon.png'></a></td>";
+	if($_SESSION['rol'] == "registrado" || $_SESSION['rol'] == "admin"){
+		$newMsgButton = "<td><a href='../index.php?newmsg'><img class = 'interactiveButton' src='../img/newMessageIcon.png'></a></td>";
+		$editProfileButton = "<td><a href='../registrado/editarperfil.php?perfil=$_SESSION[login]'><img class = 'interactiveButton' src='../img/editIcon.png'></a></td>";
+	}
 }
 
 
@@ -67,6 +69,7 @@ if(isset($_POST['inicio'])){ //si se ha pulsado el botón en el formulario
 					<table>
 						<tr id = "botonesBarra">
 						<?php if(isset($adminButton)) echo $adminButton; ?>
+						<?php if(isset($editProfileButton)) echo $editProfileButton; ?>
 						<?php if(isset($newMsgButton)) echo $newMsgButton; ?>
 						</tr>
 					</table>

@@ -18,9 +18,11 @@ else {
 
 if(isset($_SESSION['rol'])){
 	if($_SESSION['rol'] == "admin")
-		$adminButton = "<td><a href='./admin/admin.php'><img class = 'interactiveButton' src='../img/adminIcon.png'></a></td>";
-	if($_SESSION['rol'] == "registrado" || $_SESSION['rol'] == "admin")
-		$newMsgButton = "<td><a href='./index.php?newmsg'><img class = 'interactiveButton' src='../img/newMessageIcon.png'></a></td>";
+		$adminButton = "<td><a href='../admin/admin.php'><img class = 'interactiveButton' src='../img/adminIcon.png'></a></td>";
+	if($_SESSION['rol'] == "registrado" || $_SESSION['rol'] == "admin"){
+		$newMsgButton = "<td><a href='../index.php?newmsg'><img class = 'interactiveButton' src='../img/newMessageIcon.png'></a></td>";
+		$editProfileButton = "<td><a href='../registrado/editarperfil.php?perfil=$_SESSION[login]'><img class = 'interactiveButton' src='../img/editIcon.png'></a></td>";
+	}
 }
 
 if(isset($_POST['registro'])){
@@ -46,6 +48,11 @@ if(isset($_POST['registro'])){
 			$funciona = false;
 		}
 		
+		if(!preg_match('/[A-Z,a-z,0-9,.]{7,32}$/', $passwordNewUser)){
+				$funciona = false;
+				$errormsj = "<br><div id='errormsj'>La contraseña ha de tener una longitud entre 7 y 32 caracteres</div>";
+		}
+		
 		if($funciona){
 			$consultaInsert = "INSERT INTO usuarios VALUES ( '$loginNewUser', PASSWORD('$passwordNewUser'), 'noactivo', '$nombreNewUser', '$apellidosNewUser');";
 			mysqli_query( $linkDB, $consultaInsert);
@@ -69,6 +76,7 @@ if(isset($_POST['registro'])){
 					<table>
 						<tr id = "botonesBarra">
 						<?php if(isset($adminButton)) echo $adminButton; ?>
+						<?php if(isset($editProfileButton)) echo $editProfileButton; ?>
 						<?php if(isset($newMsgButton)) echo $newMsgButton; ?>
 						</tr>
 					</table>
