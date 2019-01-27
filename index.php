@@ -63,7 +63,7 @@ if(isset($_SESSION['rol'])){
 	<body>
 		<div class = "main">
 			<div id = "banner">
-					<h1 id = "bannerText"><a href="./index.php">Anuncia2</a></h1>
+					<h1 id = "bannerText"><a href="./index.php">Anuncia5</a></h1>
 					<?php if(isset($mensajeBanner)) echo $mensajeBanner; ?>
 					<table>
 						<tr id = "botonesBarra">

@@ -111,6 +111,11 @@ mysqli_close($linkDB);
 							Apellidos: <input type="text" name="newApellidos" value='<?php echo "$datosUsuario[apellidos]"; ?>'></input>
 							<br><br>
 							<input class='interactiveButton' type="submit" name="cambioNombre" value="Cambiar datos personales"></input>
+							<br><br>
+							<img id="bigProfilePic" src="../img/profilePics/<?php echo "$_SESSION[imagen]";?>"><br>
+							Imagen de perfil: <input type="file" name="newImage"></input>
+							<br><br>
+							<input class='interactiveButton' type="submit" name="cambioImagen" value="Cambiar imagen"></input>
 						</form>
 					</div>
 				</div>

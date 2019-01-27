@@ -57,7 +57,7 @@ if(isset($_POST['registro'])){
 		}
 		
 		if($funciona){
-			$consultaInsert = "INSERT INTO usuarios VALUES ( '$loginNewUser', PASSWORD('$passwordNewUser'), 'noactivo', '$nombreNewUser', '$apellidosNewUser');";
+			$consultaInsert = "INSERT INTO usuarios VALUES ( '$loginNewUser', PASSWORD('$passwordNewUser'), 'noactivo', '$nombreNewUser', '$apellidosNewUser', 'user_profilepic.jpg');";
 			mysqli_query( $linkDB, $consultaInsert);
 			$confirmacionmsj = "<br><div id='confirmacionmsj'>Usuario creado, debe esperar a que el administrador active su cuenta</div>";
 		}		

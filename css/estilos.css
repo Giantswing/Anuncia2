@@ -215,6 +215,8 @@ input {
 }
 
 .interactiveButton {
+	font-weight : bold;
+	background-color : #ffb366;
 	transform : scale(1);
 	transition : 0.1s;
 }
@@ -241,6 +243,14 @@ input {
 	top : 25%;
 	right : 1%;
 	z-index : 15;
+}
+
+#bigProfilePic {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	width:128px;
+	border-radius:10px;
 }
 
 

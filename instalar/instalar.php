@@ -28,7 +28,8 @@ if(isset($_POST['instala'])){
 					password VARCHAR(512) NOT NULL,
 					rol ENUM('admin','registrado','noactivo') NOT NULL,
 					nombre VARCHAR(512),
-					apellidos VARCHAR(512)
+					apellidos VARCHAR(512),
+					imagenperfil VARCHAR(512)
 					);";
 					
 			$sql[]="CREATE TABLE IF NOT EXISTS anuncios(
@@ -64,7 +65,7 @@ if(isset($_POST['admin'])){
 	$loginAdmin = mysqli_real_escape_string($linkDB, $_POST['loginAdmin']);
 	$passwordAdmin = mysqli_real_escape_string($linkDB, $_POST['passwordAdmin']);
 				
-	$consultaInsert = "INSERT INTO USUARIOS VALUES('$loginAdmin', PASSWORD('$passwordAdmin'), 'admin', 'Admin', 'Admin');";
+	$consultaInsert = "INSERT INTO USUARIOS VALUES('$loginAdmin', PASSWORD('$passwordAdmin'), 'admin', 'Admin', 'Admin', 'admin_profilepic.jpg');";
 				
 	mysqli_query($linkDB, $consultaInsert);
 	mysqli_close($linkDB);
