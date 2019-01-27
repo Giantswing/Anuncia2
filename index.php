@@ -56,12 +56,14 @@ if(isset($_SESSION['rol'])){
 
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="./css/estilos.css">
+		<title>Inicio | Anuncia2</title>
+		<meta charset = "utf-8"/>
+		<link rel="stylesheet" type="text/css" href="./css/estilos.css"/>
 	</head>
 	<body>
 		<div class = "main">
 			<div id = "banner">
-					<h1 id = "bannerText"><a href="./index.php">Anuncia34</a></h1>
+					<h1 id = "bannerText"><a href="./index.php">Anuncia2</a></h1>
 					<?php if(isset($mensajeBanner)) echo $mensajeBanner; ?>
 					<table>
 						<tr id = "botonesBarra">
@@ -129,7 +131,7 @@ if(isset($_SESSION['rol'])){
 			</table>
 			</div>
 			
-			<?php if(isset ($_GET['newmsg'])){ ?>
+			<?php if(isset($_GET['newmsg']) && (isset($_SESSION['rol'])) && $_SESSION['rol'] != 'noactivo'){ ?>
 			<div id="mensajeBack"><a href='./index.php'></a></div>
 				<div id = "menuMensaje">
 				<form method = 'POST'>

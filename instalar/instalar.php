@@ -76,8 +76,9 @@ if(isset($_POST['admin'])){
 
 <!DOCTYPE html>
 <head>
-	<title>Instalación de Anuncia2</title>
 	<link rel = "stylesheet" href = "../css/estilos.css">
+	<title>Instalación de Anuncia2</title>
+	<meta charset = "utf-8"/>
 </head>
 <body>
 	<div id = "banner">

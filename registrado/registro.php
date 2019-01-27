@@ -34,7 +34,10 @@ if(isset($_POST['registro'])){
 		$nombreNewUser = $_POST['nombreNewUser'];
 		$apellidosNewUser = $_POST['apellidosNewUser'];
 
-		
+		if(!preg_match('/[A-Z,a-z,0-9,.]{4,16}$/', $loginNewUser)){
+				$funciona = false;
+				$errormsj = "<br><div id='errormsj'>El login debe tener entre 4 y 16 caracteres</div>";
+		}
 
 		if($passwordNewUser != $passwordNewUser2){
 			$errormsj = "<br><div id='errormsj'>Las contraseñas no coinciden</div>";
@@ -65,7 +68,8 @@ if(isset($_POST['registro'])){
 
 <!DOCTYPE html>
 <head>
-    <title>Registro</title>
+		<title>Registro usuario | Anuncia2</title>
+		<meta charset = "utf-8"/>
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
 </head>
 <body>

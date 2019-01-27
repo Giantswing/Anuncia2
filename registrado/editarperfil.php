@@ -82,6 +82,8 @@ mysqli_close($linkDB);
 
 <html>
 	<head>
+		<title>Editar perfil | Anuncia2</title>
+		<meta charset = "utf-8"/>
 		<link rel="stylesheet" type="text/css" href="../css/estilos.css">
 	</head>
 	<body>

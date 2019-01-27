@@ -68,6 +68,8 @@ if(isset($_SESSION['rol'])){
 
 <html>
 	<head>
+		<title>Sección Admin | Anuncia2</title>
+		<meta charset = "utf-8"/>
 		<link rel="stylesheet" type="text/css" href="../css/estilos.css">
 	</head>
 	<body>

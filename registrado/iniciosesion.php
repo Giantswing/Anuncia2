@@ -58,7 +58,8 @@ if(isset($_POST['inicio'])){ //si se ha pulsado el botón en el formulario
 
 <!DOCTYPE html>
 <head>
-    <title>Inicio sesión</title>
+		<title>Inicio de sesión | Anuncia2</title>
+		<meta charset = "utf-8"/>
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
 </head>
 <body>
