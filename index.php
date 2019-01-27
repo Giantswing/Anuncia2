@@ -63,7 +63,7 @@ if(isset($_SESSION['rol'])){
 	<body>
 		<div class = "main">
 			<div id = "banner">
-					<h1 id = "bannerText"><a href="./index.php">Anuncia5</a></h1>
+					<h1 id = "bannerText"><a href="./index.php">Anuncia2</a></h1>
 					<?php if(isset($mensajeBanner)) echo $mensajeBanner; ?>
 					<table>
 						<tr id = "botonesBarra">
@@ -107,24 +107,31 @@ if(isset($_SESSION['rol'])){
 				
 				
 				//echo "<script>alert('$horasPasadas[0]');</script>";
+				if(file_exists('./img/profilePics/'.$fila['usuario'].'_profilepic.jpg')){
+					echo "<tr><td class = 'mensaje'><img class='imagenMensaje' src='./img/profilePics/$fila[usuario]_profilepic.jpg'><div class='textoMensaje'>";
+				}
+				else{
+					echo "<tr><td class = 'mensaje'><img class='imagenMensaje' src='./img/profilePics/user_profilepic.jpg'><div class='textoMensaje'>";
+				}
 				
 				if(isset($_SESSION['rol'])){
 					if($_SESSION['rol'] == 'admin'){
-						echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><a class = 'borrarMsgBtn' 
-						href = './index.php?borrarMsg=$fila[id]&autor=$fila[usuario]'><img class = 'interactiveButton' src = './img/deleteIcon.png'></a><br>$fila[mensaje]</td></tr>";
+						echo "<div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><a class = 'borrarMsgBtn' 
+						href = './index.php?borrarMsg=$fila[id]&autor=$fila[usuario]'><img class = 'interactiveButton' src = './img/deleteIcon.png'></a><br>$fila[mensaje]";
 					}
 					else{
 						if($fila['usuario'] == $_SESSION['login']){
-							echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><a class = 'borrarMsgBtn' 
-							href = './index.php?borrarMsg=$fila[id]&autor=$fila[usuario]'><img class = 'interactiveButton' src = './img/deleteIcon.png'></a><br>$fila[mensaje]</td></tr>";
+							echo "<div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><a class = 'borrarMsgBtn' 
+							href = './index.php?borrarMsg=$fila[id]&autor=$fila[usuario]'><img class = 'interactiveButton' src = './img/deleteIcon.png'></a><br>$fila[mensaje]";
 						}
 						else
-							echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><br>$fila[mensaje]</td></tr>";
+							echo "<div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><br>$fila[mensaje]";
 					}
 				}
 				else
-					echo "<tr><td class = 'mensaje'><div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><br>$fila[mensaje]</td></tr>";
+					echo "<div class = 'infoMensaje'><b>$fila[usuario]</b> <i>($fila[fecha]), $tiempoMensaje</i>:</div><br>$fila[mensaje]";
 				
+				echo "</div></td></tr>";
 			}
 			
 			?>

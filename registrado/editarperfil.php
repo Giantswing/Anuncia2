@@ -46,6 +46,33 @@ if(isset($_POST['cambioNombre'])){
 	mysqli_query($linkDB, $mensajeUpdate);
 }
 
+if(isset($_POST['cambioImagen'])){
+
+	$nombreImagen = $_FILES['nuevaImagen']['name'];
+	$nombreTemporal = $_FILES['nuevaImagen']['tmp_name'];
+	
+	if(isset($nombreImagen)){
+			if(!empty($nombreImagen)){
+					$ruta = '../img/profilePics/';
+					$sizeImagen = $_FILES['nuevaImagen']['size'];
+					
+					//echo "<script>alert('$sizeImagen');</script>";
+					
+					if($sizeImagen < 500000){
+						if(move_uploaded_file($nombreTemporal, $ruta.$_SESSION['login']."_profilepic.jpg")){
+							header("Location:../registrado/editarperfil.php?perfil=$_SESSION[login]");
+						}
+						else{
+							$errormsj2 = "<br><div class='errormsj'>Ha habido algún error en la subida del fichero</div>";
+						}
+					}
+					else {
+						$errormsj2 = "<br><div class='errormsj'>La imagen ha de pesar menos de 500KB</div>";
+					}
+			}
+	}
+}
+
 $mensajeSelect = "SELECT * FROM usuarios WHERE login='$_SESSION[login]';";
 $mensajeServidor = mysqli_query($linkDB, $mensajeSelect);
 $datosUsuario = mysqli_fetch_array($mensajeServidor, MYSQLI_ASSOC);
@@ -60,17 +87,17 @@ if(isset($_POST['cambioPass'])){
 			if(preg_match('/[A-Z,a-z,0-9,.]{7,32}$/',$_POST['newPass1'])){
 				$updateHash_mensaje = "UPDATE usuarios SET password=PASSWORD('$_POST[newPass1]') WHERE login='$_SESSION[login]';";
 				mysqli_query($linkDB, $updateHash_mensaje);
-				$confirmacionmsj = "<br><div id='confirmacionmsj'>Contraseña cambiada con éxito</div>";
+				$confirmacionmsj = "<br><div class='confirmacionmsj'>Contraseña cambiada con éxito</div>";
 			}
 			else 
-				$errormsj = "<br><div id='errormsj'>La contraseña ha de tener una longitud entre 7 y 32 caracteres</div>";
+				$errormsj = "<br><div class='errormsj'>La contraseña ha de tener una longitud entre 7 y 32 caracteres</div>";
 		}
 		else{
-			$errormsj = "<br><div id='errormsj'>Las nuevas contraseñas no coinciden</div>";
+			$errormsj = "<br><div class='errormsj'>Las nuevas contraseñas no coinciden</div>";
 		}
 	}
 	else{
-		$errormsj = "<br><div id='errormsj'>La antigua contraseña introducida no es correcta</div>";
+		$errormsj = "<br><div class='errormsj'>La antigua contraseña introducida no es correcta</div>";
 	}
 }
 
@@ -111,14 +138,25 @@ mysqli_close($linkDB);
 							Apellidos: <input type="text" name="newApellidos" value='<?php echo "$datosUsuario[apellidos]"; ?>'></input>
 							<br><br>
 							<input class='interactiveButton' type="submit" name="cambioNombre" value="Cambiar datos personales"></input>
-							<br><br>
+						</form>
+					</div>
+				</div>
+				
+				
+				<h2 class = "titulo">Cambiar la imagen de perfil</h2>
+				<div class = "formularioBack">
+					<div id = "formulario">
+						<form method='POST' enctype="multipart/form-data">
 							<img id="bigProfilePic" src="../img/profilePics/<?php echo "$_SESSION[imagen]";?>"><br>
-							Imagen de perfil: <input type="file" name="newImage"></input>
+							<input type="file" name="nuevaImagen" value=""></input>
 							<br><br>
 							<input class='interactiveButton' type="submit" name="cambioImagen" value="Cambiar imagen"></input>
 						</form>
 					</div>
+					
+					<?php if(isset($errormsj2)) echo $errormsj2; ?>
 				</div>
+				
 				
 				<h2 class = "titulo">Cambiar la contraseña</h2>
 				<div class = "formularioBack">

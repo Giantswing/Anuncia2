@@ -36,30 +36,30 @@ if(isset($_POST['registro'])){
 
 		if(!preg_match('/[A-Z,a-z,0-9,.]{4,16}$/', $loginNewUser)){
 				$funciona = false;
-				$errormsj = "<br><div id='errormsj'>El login debe tener entre 4 y 16 caracteres</div>";
+				$errormsj = "<br><div class='errormsj'>El login debe tener entre 4 y 16 caracteres</div>";
 		}
 
 		if($passwordNewUser != $passwordNewUser2){
-			$errormsj = "<br><div id='errormsj'>Las contraseñas no coinciden</div>";
+			$errormsj = "<br><div class='errormsj'>Las contraseñas no coinciden</div>";
 			$funciona = false;
 		}
 		
 		$mensajeServidor = "SELECT * FROM usuarios WHERE login = '$loginNewUser'";
 		$consultaSelect = mysqli_query($linkDB, $mensajeServidor);
 		if(mysqli_num_rows($consultaSelect) == 1){
-			$errormsj = "<br><div id='errormsj'>El nombre de usuario ya está en uso</div>";
+			$errormsj = "<br><div class='errormsj'>El nombre de usuario ya está en uso</div>";
 			$funciona = false;
 		}
 		
 		if(!preg_match('/[A-Z,a-z,0-9,.]{7,32}$/', $passwordNewUser)){
 				$funciona = false;
-				$errormsj = "<br><div id='errormsj'>La contraseña ha de tener una longitud entre 7 y 32 caracteres</div>";
+				$errormsj = "<br><div class='errormsj'>La contraseña ha de tener una longitud entre 7 y 32 caracteres</div>";
 		}
 		
 		if($funciona){
 			$consultaInsert = "INSERT INTO usuarios VALUES ( '$loginNewUser', PASSWORD('$passwordNewUser'), 'noactivo', '$nombreNewUser', '$apellidosNewUser', 'user_profilepic.jpg');";
 			mysqli_query( $linkDB, $consultaInsert);
-			$confirmacionmsj = "<br><div id='confirmacionmsj'>Usuario creado, debe esperar a que el administrador active su cuenta</div>";
+			$confirmacionmsj = "<br><div class='confirmacionmsj'>Usuario creado, debe esperar a que el administrador active su cuenta</div>";
 		}		
 		
 		mysqli_close( $linkDB );

@@ -28,8 +28,7 @@ if(isset($_POST['instala'])){
 					password VARCHAR(512) NOT NULL,
 					rol ENUM('admin','registrado','noactivo') NOT NULL,
 					nombre VARCHAR(512),
-					apellidos VARCHAR(512),
-					imagenperfil VARCHAR(512)
+					apellidos VARCHAR(512)
 					);";
 					
 			$sql[]="CREATE TABLE IF NOT EXISTS anuncios(

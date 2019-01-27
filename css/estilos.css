@@ -37,7 +37,7 @@ input {
 	text-align : center;
 	margin : auto;
 	top : 50%;
-	left : 22%;
+	left : 19%;
 	width : 40vw;
 	transform : translateY(-50%);
 	
@@ -65,8 +65,8 @@ input {
 .main {
 		background-color : #e6f2ff;
 		margin : 1%;
-		margin-left : 10%;
-		margin-right : 10%;
+		margin-left : 15%;
+		margin-right : 15%;
 		padding : 2%;
 		border-radius : 10px;
 }
@@ -121,12 +121,12 @@ input {
 	content-align : center;
 }
 
-#errormsj {
+.errormsj {
 		color : red;
 		text-align : center;
 }
 
-#confirmacionmsj {
+.confirmacionmsj {
 		color : green;
 		text-align : center;
 }
@@ -216,17 +216,18 @@ input {
 
 .interactiveButton {
 	font-weight : bold;
-	background-color : #ffb366;
 	transform : scale(1);
 	transition : 0.1s;
 }
 
+.interactiveButton,img{
+	background-color : #ffb366;	
+}
 
 .msjHolder{
   border-collapse:separate; 
   border-spacing: 0 1em;
   width: 100%;	
-  
 }
 .mensaje {
 	background-color : white;
@@ -238,12 +239,28 @@ input {
 	box-shadow : 0px 0px 10px rgba(0,0,0,0.5);
 }
 
+.textoMensaje {
+	position: relative;
+	left: 60px;
+	width : 96%;
+}
+
 .borrarMsgBtn {
 	position : absolute;
 	top : 25%;
 	right : 1%;
 	z-index : 15;
 }
+
+.imagenMensaje {
+	position : absolute;
+	top : 20%;
+	left: 1%;
+	z-index : 10;
+	width : 50px;
+	border-radius : 10px;
+}
+
 
 #bigProfilePic {
 	display:block;
@@ -252,6 +269,7 @@ input {
 	width:128px;
 	border-radius:10px;
 }
+
 
 
 input {

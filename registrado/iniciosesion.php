@@ -48,11 +48,11 @@ if(isset($_POST['inicio'])){ //si se ha pulsado el botón en el formulario
 							header("Location:../index.php");
 						}
 						else {
-							$errormsj = "<br><div id='errormsj'>Su cuenta aun no ha sido activada</div>";
+							$errormsj = "<br><div class='errormsj'>Su cuenta aun no ha sido activada</div>";
 						}	
 
 			} else {
-				$errormsj = "<br><div id='errormsj'>Error en las credenciales</div>";
+				$errormsj = "<br><div class='errormsj'>Error en las credenciales</div>";
 			}
 }
 ?>
