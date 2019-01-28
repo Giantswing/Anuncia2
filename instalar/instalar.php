@@ -64,12 +64,12 @@ if(isset($_POST['admin'])){
 	$loginAdmin = mysqli_real_escape_string($linkDB, $_POST['loginAdmin']);
 	$passwordAdmin = mysqli_real_escape_string($linkDB, $_POST['passwordAdmin']);
 				
-	$consultaInsert = "INSERT INTO USUARIOS VALUES('$loginAdmin', PASSWORD('$passwordAdmin'), 'admin', 'Admin', 'Admin', 'admin_profilepic.jpg');";
+	$consultaInsert = "INSERT INTO USUARIOS VALUES('$loginAdmin', PASSWORD('$passwordAdmin'), 'admin', 'Admin', 'Admin');";
 				
 	mysqli_query($linkDB, $consultaInsert);
 	mysqli_close($linkDB);
 				
-	$mensaje = "Usuario administrador '$login' creado con éxito, borre la carpeta 'Instalar' y empiece a usar la AW";
+	$mensaje = "Usuario administrador '$loginAdmin' creado con éxito, borre la carpeta 'Instalar' y empiece a usar la AW";
 }
 ?>
 

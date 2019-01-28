@@ -147,7 +147,16 @@ mysqli_close($linkDB);
 				<div class = "formularioBack">
 					<div id = "formulario">
 						<form method='POST' enctype="multipart/form-data">
-							<img id="bigProfilePic" src="../img/profilePics/<?php echo "$_SESSION[imagen]";?>"><br>
+						
+							<?php
+							if(file_exists('../img/profilePics/'.$_SESSION['login'].'_profilepic.jpg')){
+								echo "<img id='bigProfilePic' src='../img/profilePics/$_SESSION[login]_profilepic.jpg'><br>";
+							}
+							else{
+								echo "<img id='bigProfilePic' src='../img/profilePics/user_profilepic.jpg'><br>";
+							}
+							?>
+							
 							<input type="file" name="nuevaImagen" value=""></input>
 							<br><br>
 							<input class='interactiveButton' type="submit" name="cambioImagen" value="Cambiar imagen"></input>

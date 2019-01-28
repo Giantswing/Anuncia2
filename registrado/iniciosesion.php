@@ -44,7 +44,7 @@ if(isset($_POST['inicio'])){ //si se ha pulsado el botón en el formulario
 							$_SESSION['autenticado'] = true;
 							$_SESSION['login'] = $datosUsuario['login'];
 							$_SESSION['rol'] = $datosUsuario['rol'];
-							$_SESSION['imagen'] = $datosUsuario['imagenperfil'];
+							//$_SESSION['imagen'] = $datosUsuario['imagenperfil'];
 							header("Location:../index.php");
 						}
 						else {

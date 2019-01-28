@@ -242,20 +242,20 @@ input {
 .textoMensaje {
 	position: relative;
 	left: 60px;
-	width : 96%;
+	width : 90%;
 }
 
 .borrarMsgBtn {
 	position : absolute;
 	top : 25%;
-	right : 1%;
+	right : 30px;
 	z-index : 15;
 }
 
 .imagenMensaje {
 	position : absolute;
 	top : 20%;
-	left: 1%;
+	left: 15px;
 	z-index : 10;
 	width : 50px;
 	height: 50px;
