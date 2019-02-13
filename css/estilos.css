@@ -248,7 +248,7 @@ input {
 .borrarMsgBtn {
 	position : absolute;
 	top : 25%;
-	right : 30px;
+	right : 10px;
 	z-index : 15;
 }
 
@@ -271,8 +271,6 @@ input {
 	height:128px;
 	border-radius:10px;
 }
-
-
 
 input {
 	    margin-left: auto;

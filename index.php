@@ -4,6 +4,7 @@ if(!file_exists("./conf/config.php")){
 }
 else{
 	include_once("./conf/config.php");
+	include_once("./librerias/libreriaFechas.php");
 }
 
 session_start();

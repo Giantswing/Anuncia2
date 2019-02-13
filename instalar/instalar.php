@@ -37,7 +37,7 @@ if(isset($_POST['instala'])){
 					fecha_validez DATETIME,
 					mensaje VARCHAR(2048),
 					usuario VARCHAR(40) NOT NULL, 
-					FOREIGN KEY(usuario) REFERENCES USUARIOS(login)
+					FOREIGN KEY(usuario) REFERENCES usuarios(login)
 					ON DELETE CASCADE
 					ON UPDATE CASCADE
 					);";
@@ -64,7 +64,7 @@ if(isset($_POST['admin'])){
 	$loginAdmin = mysqli_real_escape_string($linkDB, $_POST['loginAdmin']);
 	$passwordAdmin = mysqli_real_escape_string($linkDB, $_POST['passwordAdmin']);
 				
-	$consultaInsert = "INSERT INTO USUARIOS VALUES('$loginAdmin', PASSWORD('$passwordAdmin'), 'admin', 'Admin', 'Admin');";
+	$consultaInsert = "INSERT INTO usuarios VALUES('$loginAdmin', PASSWORD('$passwordAdmin'), 'admin', 'Admin', 'Admin');";
 				
 	mysqli_query($linkDB, $consultaInsert);
 	mysqli_close($linkDB);
